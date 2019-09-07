@@ -1,0 +1,69 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head th:fragment="sys-header">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!--bootstrap-->
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/static/css/font-awesome.min.css}" href="/css/font-awesome.min.css">
+    <!--jqgrid-->
+    <link rel="stylesheet" th:href="@{/static/plugins/jqgrid/ui.jqgrid-bootstrap.css}" href="/plugins/jqgrid/ui.jqgrid-bootstrap.css">
+    <link rel="stylesheet" th:href="@{/static/plugins/ztree/css/metroStyle/metroStyle.css}" href="/plugins/ztree/css/metroStyle/metroStyle.css">
+    <!--main-->
+    <link rel="stylesheet" th:href="@{/static/css/main.css}" href="/css/main.css">
+    <link rel="stylesheet" th:href="@{/static/css/iview.css}" href="/css/iview.css">
+    <link rel="stylesheet" th:href="@{/static/css/style.css}" href="/css/style.css">
+    <!--treegrid-->
+    <link rel="stylesheet" th:href="@{/static/plugins/treegrid/jquery.treegrid.css}" href="/plugins/treegrid/jquery.treegrid.css">
+    <!--富文本-->
+    <link rel="stylesheet" th:href='@{/static/plugins/froala_editor/css/froala_editor.min.css}' href='/plugins/froala_editor/css/froala_editor.min.css'/>
+
+    <!--jquery-->
+    <script th:src="@{/static/libs/jquery.min.js}" src="/libs/jquery.min.js"></script>
+    <!--layer-->
+    <script th:src="@{/static/plugins/layer/layer.js}" src="/plugins/layer/layer.js"></script>
+    <!--<script th:src="@{/static/plugins/layui/layui.js}" src="/plugins/layui/layui.js"></script>-->
+    <!--bootstrap-->
+    <script th:src="@{/static/libs/bootstrap.min.js}" src="/libs/bootstrap.min.js"></script>
+    <!--vue-->
+    <script th:src="@{/static/libs/vue.min.js}" src="/libs/vue.min.js"></script>
+    <script th:src="@{/static/libs/iview.min.js}" src="/libs/iview.min.js"></script>
+    <!--jqgrid-->
+    <script th:src="@{/static/plugins/jqgrid/grid.locale-cn.js}" src="/plugins/jqgrid/grid.locale-cn.js"></script>
+    <script th:src="@{/static/plugins/jqgrid/jquery.jqGrid.min.js}" src="/plugins/jqgrid/jquery.jqGrid.min.js"></script>
+    <!--ztree-->
+    <script th:src="@{/static/plugins/ztree/jquery.ztree.all.min.js}" src="/plugins/ztree/jquery.ztree.all.min.js"></script>
+    <!--treegrid-->
+    <script th:src="@{/static/plugins/treegrid/jquery.treegrid.extension.js}" src="/plugins/treegrid/jquery.treegrid.extension.js"></script>
+    <script th:src="@{/static/plugins/treegrid/jquery.treegrid.min.js}" src="/plugins/treegrid/jquery.treegrid.min.js"></script>
+    <script th:src="@{/static/plugins/treegrid/jquery.treegrid.bootstrap3.js}" src="/plugins/treegrid/jquery.treegrid.bootstrap3.js"></script>
+    <script th:src="@{/static/plugins/treegrid/tree.table.js}" src="/plugins/treegrid/tree.table.js"></script>
+
+    <!--simplemde富文本-->
+    <script th:src='@{/static/plugins/froala_editor/js/froala_editor.min.js}' src='/plugins/froala_editor/js/froala_editor.min.js'></script>
+    <!--[if lt IE 9]>
+    <script th:src="@{/static/plugins/froala_editor/js/froala_editor_ie8.min.js}" src="/plugins/froala_editor/js/froala_editor_ie8.min.js"></script>
+    <![endif]-->
+    <script th:src="@{/static/plugins/froala_editor/js/plugins/tables.min.js}" src="/plugins/froala_editor/js/plugins/tables.min.js"></script>
+    <script th:src="@{/static/plugins/froala_editor/js/plugins/lists.min.js}" src="/plugins/froala_editor/js/plugins/lists.min.js"></script>
+    <script th:src="@{/static/plugins/froala_editor/js/plugins/colors.min.js}" src="/plugins/froala_editor/js/plugins/colors.min.js"></script>
+    <script th:src="@{/static/plugins/froala_editor/js/plugins/media_manager.min.js}" src="/plugins/froala_editor/js/plugins/media_manager.min.js"></script>
+    <script th:src="@{/static/plugins/froala_editor/js/plugins/font_family.min.js}" src="/plugins/froala_editor/js/plugins/font_family.min.js"></script>
+    <script th:src="@{/static/plugins/froala_editor/js/plugins/font_size.min.js}" src="/plugins/froala_editor/js/plugins/font_size.min.js"></script>
+    <script th:src="@{/static/plugins/froala_editor/js/plugins/block_styles.min.js}" src="/plugins/froala_editor/js/plugins/block_styles.min.js"></script>
+    <script th:src="@{/static/plugins/froala_editor/js/plugins/video.min.js}"src="/plugins/froala_editor/js/plugins/video.min.js"></script>
+    <script th:src="@{/static/plugins/froala_editor/js/langs/zh_cn.js}" src="/plugins/froala_editor/js/langs/zh_cn.js"></script>
+
+    <script th:src="@{/static/libs/jquery-extend.js}" src="/libs/jquery-extend.js"></script>
+    <script th:src="@{/static/js/common.js}" src="/js/common.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?4656e49e8efa9f2ad6868ea26fb8984c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>

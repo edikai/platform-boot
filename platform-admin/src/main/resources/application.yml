@@ -1,0 +1,18 @@
+
+spring:
+  profiles:
+    active: test
+  thymeleaf:
+    cache: false
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  xss-filter:
+    excluded-pages: /topic/update,/topic/save,/goods/save,/goods/update
