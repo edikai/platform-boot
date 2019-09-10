@@ -92,40 +92,51 @@ public class SysLoginController {
         return "redirect:/";
     }
 
-//    /**
-//     * 首页
-//     * @return
-//     */
-//    @RequestMapping(value = "/index", method = RequestMethod.GET)
-//    public String index() {
-//        return "/login.html";
-//    }
-//
-//    /**
-//     * 登录成功
-//     * @return
-//     */
-//    @RequestMapping(value = "/success", method = RequestMethod.GET)
-//    public String success() {
-//        return "/success";
-//    }
-//
-//    /**
-//     * main.html
-//     * @return
-//     */
-//    @RequestMapping(value = "/sys/main", method = RequestMethod.GET)
-//    public String sysMain() {
-//        return "/page/sys/main";
-//    }
-//
-//    /**
-//     * header.html
-//     * @return
-//     */
-//    @RequestMapping(value = "/sys/header", method = RequestMethod.GET)
-//    public String sysHeader() {
-//        return "/page/sys/header";
-//    }
+    /**
+     * 首页
+     * @return
+     */
+    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
+    public String index() {
+        System.out.println("SysLoginController.index.....");
+        return "login";
+    }
+
+    /**
+     * 登录成功
+     * @return
+     */
+    @RequestMapping(value = "/success.html", method = RequestMethod.GET)
+    public String success() {
+        System.out.println("SysLoginController.success.....");
+        return "/success";
+    }
+
+    /**
+     * main.html
+     * @return
+     */
+    @RequestMapping(value = "/sys/main", method = RequestMethod.GET)
+    public String sysMain() {
+        return "/sys/main";
+    }
+    
+    /**
+     * main.html
+     * @return
+     */
+    @RequestMapping(value = "/sys/macro", method = RequestMethod.GET)
+    public String sysMacro() {
+        return "/sys/macro";
+    }
+
+    /**
+     * header.html
+     * @return
+     */
+    @RequestMapping(value = "/sys/header", method = RequestMethod.GET)
+    public String sysHeader() {
+        return "/page/sys/header";
+    }
 
 }

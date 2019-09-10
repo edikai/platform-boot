@@ -56,7 +56,7 @@ public class SysOssController {
     public R list(@RequestParam Map<String, Object> params) {
         //查询列表数据
         PageUtilsPlus pageUtil = sysOssService.queryPage(params);
-        return R.ok().put("page", pageUtil);
+        return R.ok().put("templates/page", pageUtil);
     }
 
 

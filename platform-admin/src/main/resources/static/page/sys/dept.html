@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <html>
 <head>
     <title>部门管理</title>
-    #parse("sys/header.html")
+    <link rel="import" href="../../header.html" id="header"/>
+    <div th:include="header :: sys-header"  ></div>
 </head>
 <body>
 <div id="rrapp" v-cloak>

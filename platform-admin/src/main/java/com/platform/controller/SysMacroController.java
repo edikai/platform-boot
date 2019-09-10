@@ -21,11 +21,12 @@ import java.util.Map;
  * @date 2017-08-22 11:48:16
  */
 @RestController
-@RequestMapping("sys/macro")
+@RequestMapping("/sys/macro")
 public class SysMacroController {
     @Autowired
     private SysMacroService sysMacroService;
-
+    
+    
     /**
      * 所有字典列表
      *
@@ -43,7 +44,7 @@ public class SysMacroController {
 
         PageUtils pageUtil = new PageUtils(sysMacroList, total, query.getLimit(), query.getPage());
 
-        return R.ok().put("page", pageUtil);
+        return R.ok().put("templates/page", pageUtil);
     }
 
     /**

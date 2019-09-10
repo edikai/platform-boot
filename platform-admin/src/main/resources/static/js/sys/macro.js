@@ -11,7 +11,7 @@ function initialPage() {
 
 function getGrid() {
     var colunms = TreeGrid.initColumn();
-    var table = new TreeTable(TreeGrid.id, '../sys/macro/queryAll', colunms);
+    var table = new TreeTable(TreeGrid.id, '/sys/macro/queryAll', colunms);
     table.setExpandColumn(2);
     table.setIdField("id");
     table.setCodeField("id");
@@ -105,7 +105,7 @@ var vm = new Vue({
         },
         getMacros: function () {
             Ajax.request({
-                url: "../sys/macro/queryAllParent",
+                url: "/sys/macro/queryAllParent",
                 async: true,
                 successCallback: function (r) {
                     vm.macros = r.list;
@@ -128,7 +128,7 @@ var vm = new Vue({
             vm.showList = false;
             vm.title = "修改";
             Ajax.request({
-                url: "../sys/macro/info/" + id[0].id,
+                url: "/sys/macro/info/" + id[0].id,
                 async: true,
                 successCallback: function (r) {
                     vm.macro = r.macro;
@@ -137,7 +137,7 @@ var vm = new Vue({
             vm.getMacros();
         },
         saveOrUpdate: function (event) {
-            var url = vm.macro.id == null ? "../sys/macro/save" : "../sys/macro/update";
+            var url = vm.macro.id == null ? "/sys/macro/save" : "/sys/macro/update";
             Ajax.request({
                 type: 'POST',
                 url: url,
@@ -162,7 +162,7 @@ var vm = new Vue({
                     ids[idx] = item.id;
                 });
                 Ajax.request({
-                    url: "../sys/macro/delete",
+                    url: "/sys/macro/delete",
                     params: JSON.stringify(ids),
                     contentType: "application/json",
                     type: 'POST',

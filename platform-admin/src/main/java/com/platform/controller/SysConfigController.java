@@ -43,7 +43,7 @@ public class SysConfigController extends AbstractController {
 
         PageUtils pageUtil = new PageUtils(configList, total, query.getLimit(), query.getPage());
 
-        return R.ok().put("page", pageUtil);
+        return R.ok().put("templates/page", pageUtil);
     }
 
 

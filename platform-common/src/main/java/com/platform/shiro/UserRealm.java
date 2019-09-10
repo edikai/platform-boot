@@ -16,6 +16,7 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
@@ -25,6 +26,7 @@ import java.util.*;
  * @author lipengjun
  * @date 2017年11月19日 上午9:49:19
  */
+@Component
 public class UserRealm extends AuthorizingRealm {
     @Autowired
     private SysUserDao sysUserDao;

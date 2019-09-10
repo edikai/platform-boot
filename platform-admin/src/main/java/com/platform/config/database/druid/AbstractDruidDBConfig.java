@@ -2,19 +2,25 @@ package com.platform.config.database.druid;
 
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
-//import com.github.pagehelper.PageHelper;
+import com.alibaba.druid.wall.WallConfig;
+import com.alibaba.druid.wall.WallFilter;
+import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import com.platform.page.PageHelper;
 import org.apache.commons.lang.StringUtils;
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.sql.SQLException;
+import java.util.Properties;
 
 /**
  * @ClassName: AbstractDruidDBConfig
@@ -58,7 +64,10 @@ public abstract class AbstractDruidDBConfig {
             System.out.println(filter.isLogSlowSql());
 
         });
-//        druidDataSource.getProxyFilters().stream().filter(f -> f instanceof StatFilter).forEach(System.out::println);
+        druidDataSource.getProxyFilters()
+                .stream()
+                .filter(f -> f instanceof WallFilter)
+                .forEach((filter)->((WallFilter) filter).setConfig(wallConfig()));
         return druidDataSource;
     }
 
@@ -81,24 +90,33 @@ public abstract class AbstractDruidDBConfig {
     public SqlSessionFactory createSqlSessionFactory(DataSource dataSource, String mapperLocations) throws Exception {
         MybatisSqlSessionFactoryBean sqlSessionFactoryBean = new MybatisSqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-//        GlobalConfig globalConfig = new GlobalConfig();
-//        GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig();
+        GlobalConfig globalConfig = new GlobalConfig();
+        GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig();
 
 
-//        PageHelper pageHelper = new PageHelper();
-//        Properties props = new Properties();
-//        props.setProperty("dialect", "mysql");
-//        props.setProperty("reasonable", "true");
-//        props.setProperty("supportMethodsArguments", "true");
-//        props.setProperty("returnPageInfo", "check");
-//        props.setProperty("params", "count=countSql");
-//        pageHelper.setProperties(props); // 添加插件
-//        sqlSessionFactoryBean.setPlugins(new Interceptor[]{(Interceptor) pageHelper});
+        PageHelper pageHelper = new PageHelper();
+        Properties props = new Properties();
+        props.setProperty("dialect", "mysql");
+        props.setProperty("reasonable", "true");
+        props.setProperty("supportMethodsArguments", "true");
+        props.setProperty("returnPageInfo", "check");
+        props.setProperty("params", "count=countSql");
+        pageHelper.setProperties(props); // 添加插件
+        sqlSessionFactoryBean.setPlugins(new Interceptor[]{pageHelper});
 
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(mapperLocations));
 //        globalConfig.setDbConfig(dbConfig);
 //        sqlSessionFactoryBean.setGlobalConfig(globalConfig);
 
         return sqlSessionFactoryBean.getObject();
+    }
+
+    @Bean
+    public WallConfig wallConfig() {
+        WallConfig wallConfig = new WallConfig();
+        wallConfig.setMultiStatementAllow(true);  // 允许一次执行多条语句
+        wallConfig.setNoneBaseStatementAllow(true);
+
+        return wallConfig;
     }
 }

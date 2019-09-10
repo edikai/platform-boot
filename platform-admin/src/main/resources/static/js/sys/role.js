@@ -1,6 +1,6 @@
 $(function () {
     $("#jqGrid").Grid({
-        url: '../sys/role/list',
+        url: '/sys/role/list',
         colModel: [
             {label: '角色ID', name: 'roleId', index: "role_id", key: true, hidden: true},
             {label: '角色名称', name: 'roleName', index: "role_name", width: 75},
@@ -119,7 +119,7 @@ var vm = new Vue({
 
             confirm('确定要删除选中的记录？', function () {
                 Ajax.request({
-                    url: "../sys/role/delete",
+                    url: "/sys/role/delete",
                     params: JSON.stringify(roleIds),
                     contentType: "application/json",
                     type: 'POST',
@@ -133,7 +133,7 @@ var vm = new Vue({
         },
         getRole: function (roleId) {
             Ajax.request({
-                url: "../sys/role/info/" + roleId,
+                url: "/sys/role/info/" + roleId,
                 async: true,
                 successCallback: function (r) {
                     vm.role = r.role;
@@ -172,7 +172,7 @@ var vm = new Vue({
             }
             vm.role.deptIdList = deptIdList;
 
-            var url = vm.role.roleId == null ? "../sys/role/save" : "../sys/role/update";
+            var url = vm.role.roleId == null ? "/sys/role/save" : "/sys/role/update";
             Ajax.request({
                 url: url,
                 params: JSON.stringify(vm.role),
@@ -188,7 +188,7 @@ var vm = new Vue({
         getMenuTree: function (roleId) {
             //加载菜单树
             Ajax.request({
-                url: "../sys/menu/perms",
+                url: "/sys/menu/perms",
                 async: true,
                 successCallback: function (r) {
                     menu_ztree = $.fn.zTree.init($("#menuTree"), menu_setting, r.menuList);
@@ -204,7 +204,7 @@ var vm = new Vue({
         getDataTree: function (roleId) {
             //加载菜单树
             Ajax.request({
-                url: "../sys/dept/list",
+                url: "/sys/dept/list",
                 async: true,
                 successCallback: function (r) {
                     data_ztree = $.fn.zTree.init($("#dataTree"), data_setting, r.list);
@@ -216,7 +216,7 @@ var vm = new Vue({
         getDept: function () {
             //加载部门树
             Ajax.request({
-                url: "../sys/dept/list",
+                url: "/sys/dept/list",
                 async: true,
                 successCallback: function (r) {
                     dept_ztree = $.fn.zTree.init($("#deptTree"), dept_setting, r.list);

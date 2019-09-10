@@ -1,9 +1,12 @@
 package com.platform.config.shiro;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.platform.shiro.CluterShiroSessionDao;
 import com.platform.shiro.UserRealm;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.mgt.SessionManager;
+import org.apache.shiro.spring.LifecycleBeanPostProcessor;
+import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
@@ -27,15 +30,23 @@ import java.util.Map;
 public class ShiroConfig {
 
     private Logger log = LoggerFactory.getLogger(this.getClass());
+    
+    @Autowired
+    private UserRealm userRealm;
     @Autowired
     private CluterShiroSessionDao sessionDao;
 
     // 自定义AuthorizingRealm
+//    @Bean
+//    public UserRealm userAuthRealm() {
+//        UserRealm userRealm = new UserRealm();
+//        log.info("Initialized shiro AuthorizingRealm of UserRealm.");
+//        return userRealm;
+//    }
+    
     @Bean
-    public UserRealm userAuthRealm() {
-        UserRealm userRealm = new UserRealm();
-        log.info("Initialized shiro AuthorizingRealm of UserRealm.");
-        return userRealm;
+    public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
+        return new LifecycleBeanPostProcessor();
     }
 
     /**
@@ -56,7 +67,8 @@ public class ShiroConfig {
     @Bean
     public DefaultWebSecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(userAuthRealm());
+        securityManager.setRealm(userRealm);
+        securityManager.setSessionManager(sessionManager());
         return securityManager;
     }
 
@@ -65,9 +77,11 @@ public class ShiroConfig {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         shiroFilterFactoryBean.setUnauthorizedUrl("/");
-        shiroFilterFactoryBean.setLoginUrl("/login.html");
+//        shiroFilterFactoryBean.setLoginUrl("/login.html");
+        shiroFilterFactoryBean.setLoginUrl("/index.html");
+//        shiroFilterFactoryBean.setSuccessUrl("/success.html");
         shiroFilterFactoryBean.setSuccessUrl("/success.html");
-        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
+//        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
 
         Map<String, String> filterMap = new LinkedHashMap<>();
         filterMap.put("/audio/**", "anon");
@@ -78,10 +92,12 @@ public class ShiroConfig {
         filterMap.put("/plugins/**", "anon");
         filterMap.put("/js/**", "anon");
         filterMap.put("/static/**", "anon");
+//        filterMap.put("/templates/page/**", "anon");
+//        filterMap.put("/sys/**", "anon");
 
         filterMap.put("/api/**", "anon");
         filterMap.put("/api/**", "noSessionCreation");
-        filterMap.put("/index.html", "anon");
+//        filterMap.put("/index.html", "anon");
         filterMap.put("/sys/login", "anon");
         filterMap.put("/captcha.jpg", "anon");
         filterMap.put("/**", "authc");
@@ -89,5 +105,24 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
 
         return shiroFilterFactoryBean;
+    }
+    
+    /**
+     * 开启shiro aop注解支持.
+     * 使用代理方式;所以需要开启代码支持;
+     *
+     * @param securityManager
+     * @return
+             */
+    @Bean
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
+        AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
+        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
+        return authorizationAttributeSourceAdvisor;
+    }
+
+    @Bean
+    public ShiroDialect shiroDialect() {
+        return new ShiroDialect();
     }
 }

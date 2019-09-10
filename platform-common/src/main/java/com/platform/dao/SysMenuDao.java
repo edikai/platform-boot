@@ -1,6 +1,8 @@
 package com.platform.dao;
 
 import com.platform.entity.SysMenuEntity;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -11,6 +13,8 @@ import java.util.List;
  * @email 939961241@qq.com
  * @date 2016年9月18日 上午9:33:01
  */
+@Component
+@Mapper
 public interface SysMenuDao extends BaseDao<SysMenuEntity> {
 
     /**
