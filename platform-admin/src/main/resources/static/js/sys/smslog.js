@@ -1,6 +1,6 @@
 $(function () {
     $("#jqGrid").Grid({
-        url: '../sys/smslog/list',
+        url: '/sys/smslog/list',
         colModel: [
             {label: 'id', name: 'id', index: 'id', key: true, hidden: true},
             {label: '操作人', name: 'userName', index: 'user_id', width: 80},
@@ -56,7 +56,7 @@ let vm = new Vue({
             vm.getConfig();
         },
         updateConfig: function (event) {
-            let url = "../sys/smslog/saveConfig";
+            let url = "/sys/smslog/saveConfig";
             Ajax.request({
                 url: url,
                 params: JSON.stringify(vm.config),
@@ -71,7 +71,7 @@ let vm = new Vue({
         },
         getConfig: function () {
             Ajax.request({
-                url: "../sys/smslog/config",
+                url: "/sys/smslog/config",
                 async: true,
                 successCallback: function (r) {
                     vm.config = r.config;

@@ -1,6 +1,6 @@
 $(function () {
     $("#jqGrid").Grid({
-        url: '../sys/log/list',
+        url: '/sys/log/list',
         colModel: [
             {label: 'id', name: 'id', key: true, hidden: true},
             {label: '用户名', name: 'username', width: 50},

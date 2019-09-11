@@ -2,8 +2,7 @@
 <html>
 <head>
     <title>系统日志</title>
-    <link rel="import" href="../../header.html" id="header"/>
-    <div th:include="header :: sys-header"  ></div>
+    <link rel="import" href="/header.html" id="header"/>
 </head>
 <body>
 <div id="rrapp" v-cloak>
@@ -22,6 +21,6 @@
     <div id="jqGridPager"></div>
 </div>
 
-<script src="${rc.contextPath}/js/sys/log.js?_${date.systemTime}"></script>
+<script src="/js/sys/log.js?_${date.systemTime}"></script>
 </body>
 </html>

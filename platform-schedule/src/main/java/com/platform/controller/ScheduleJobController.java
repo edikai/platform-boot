@@ -26,6 +26,15 @@ public class ScheduleJobController {
     private ScheduleJobService scheduleJobService;
 
     /**
+     * 定时任务管理
+     * @return
+     */
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ModelAndView sysSchedule() {
+        return new ModelAndView("/page/sys/schedule");
+    }
+
+    /**
      * 分页查询定时任务
      *
      * @param params 查询参数

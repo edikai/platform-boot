@@ -1,6 +1,6 @@
 $(function () {
     $("#jqGrid").Grid({
-        url: '../sys/schedule/list',
+        url: '/sys/schedule/list',
         colModel: [
             {label: '任务ID', name: 'jobId', width: 60, key: true},
             {label: 'bean名称', name: 'beanName', width: 100},
@@ -56,7 +56,7 @@ var vm = new Vue({
             }
 
             Ajax.request({
-                url: "../sys/schedule/info/" + jobId,
+                url: "/sys/schedule/info/" + jobId,
                 async: true,
                 successCallback: function (r) {
                     vm.showList = false;
@@ -66,7 +66,7 @@ var vm = new Vue({
             });
         },
         saveOrUpdate: function (event) {
-            var url = vm.schedule.jobId == null ? "../sys/schedule/save" : "../sys/schedule/update";
+            var url = vm.schedule.jobId == null ? "/sys/schedule/save" : "/sys/schedule/update";
             Ajax.request({
                 url: url,
                 params: JSON.stringify(vm.schedule),
@@ -87,7 +87,7 @@ var vm = new Vue({
 
             confirm('确定要删除选中的记录？', function () {
                 Ajax.request({
-                    url: "../sys/schedule/delete",
+                    url: "/sys/schedule/delete",
                     params: JSON.stringify(jobIds),
                     contentType: "application/json",
                     type: 'POST',
@@ -107,7 +107,7 @@ var vm = new Vue({
 
             confirm('确定要暂停选中的记录？', function () {
                 Ajax.request({
-                    url: "../sys/schedule/pause",
+                    url: "/sys/schedule/pause",
                     params: JSON.stringify(jobIds),
                     contentType: "application/json",
                     type: 'POST',
@@ -127,7 +127,7 @@ var vm = new Vue({
 
             confirm('确定要恢复选中的记录？', function () {
                 Ajax.request({
-                    url: "../sys/schedule/resume",
+                    url: "/sys/schedule/resume",
                     params: JSON.stringify(jobIds),
                     contentType: "application/json",
                     type: 'POST',
@@ -147,7 +147,7 @@ var vm = new Vue({
 
             confirm('确定要立即执行选中的记录？', function () {
                 Ajax.request({
-                    url: "../sys/schedule/run",
+                    url: "/sys/schedule/run",
                     params: JSON.stringify(jobIds),
                     contentType: "application/json",
                     type: 'POST',

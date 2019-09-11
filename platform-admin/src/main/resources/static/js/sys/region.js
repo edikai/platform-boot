@@ -1,6 +1,6 @@
 $(function () {
     $("#jqGrid").Grid({
-        url: '../sys/region/list',
+        url: '/sys/region/list',
         colModel: [
             {label: 'id', name: 'id', index: 'id', key: true, hidden: true},
             {label: '上级区域', name: 'parentName', index: 'parent_id', width: 80},
@@ -64,7 +64,7 @@ var vm = new Vue({
             vm.getInfo(id)
         },
         saveOrUpdate: function (event) {
-            var url = vm.region.id == null ? "../sys/region/save" : "../sys/region/update";
+            var url = vm.region.id == null ? "/sys/region/save" : "/sys/region/update";
             Ajax.request({
                 type: 'POST',
                 url: url,
@@ -85,7 +85,7 @@ var vm = new Vue({
 
             confirm('确定要删除选中的记录？', function () {
                 Ajax.request({
-                    url: "../sys/region/delete",
+                    url: "/sys/region/delete",
                     params: JSON.stringify(ids),
                     contentType: "application/json",
                     type: 'POST',
@@ -99,7 +99,7 @@ var vm = new Vue({
         },
         getInfo: function (id) {
             Ajax.request({
-                url: "../sys/region/info/" + id,
+                url: "/sys/region/info/" + id,
                 async: true,
                 successCallback: function (r) {
                     vm.region = r.region;
@@ -109,7 +109,7 @@ var vm = new Vue({
         },
         changeType: function (type) {
             Ajax.request({
-                url: "../sys/region/getAreaByType?type=" + type,
+                url: "/sys/region/getAreaByType?type=" + type,
                 async: true,
                 successCallback: function (r) {
                     vm.regionList = r.list;

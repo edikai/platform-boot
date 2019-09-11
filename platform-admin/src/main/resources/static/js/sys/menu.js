@@ -129,7 +129,7 @@ var vm = new Vue({
                 type: 2,
                 title: '选取图标',
                 area: ['1030px', '500px'],
-                content: ['icon.html'],
+                content: ['/sys/icon'],
                 btn: ['确定', '取消'],
                 btn1: function (index, layero) {
                     var icon = layero.find("iframe")[0].contentWindow.$("#icon").val();
@@ -142,7 +142,7 @@ var vm = new Vue({
         getMenu: function (menuId) {
             //加载菜单树
             Ajax.request({
-                url: "../sys/menu/select",
+                url: "/sys/menu/select",
                 async: true,
                 successCallback: function (r) {
                     ztree = $.fn.zTree.init($("#menuTree"), setting, r.menuList);
@@ -177,7 +177,7 @@ var vm = new Vue({
             }
 
             Ajax.request({
-                url: "../sys/menu/info/" + menuId[0].id,
+                url: "/sys/menu/info/" + menuId[0].id,
                 async: true,
                 successCallback: function (r) {
                     vm.showList = false;
@@ -200,7 +200,7 @@ var vm = new Vue({
                     ids[idx] = item.id;
                 });
                 Ajax.request({
-                    url: "../sys/menu/delete",
+                    url: "/sys/menu/delete",
                     params: JSON.stringify(ids),
                     contentType: "application/json",
                     type: 'POST',
@@ -213,7 +213,7 @@ var vm = new Vue({
             });
         },
         saveOrUpdate: function (event) {
-            var url = vm.menu.menuId == null ? "../sys/menu/save" : "../sys/menu/update";
+            var url = vm.menu.menuId == null ? "/sys/menu/save" : "/sys/menu/update";
             Ajax.request({
                 url: url,
                 params: JSON.stringify(vm.menu),

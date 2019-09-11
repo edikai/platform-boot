@@ -1,6 +1,6 @@
 $(function () {
     $("#jqGrid").Grid({
-        url: '../sys/config/list',
+        url: '/sys/config/list',
         colModel: [
             {label: 'ID', name: 'id', key: true, hidden: true},
             {label: '参数名', name: 'key', index: 'key', width: 60},
@@ -44,7 +44,7 @@ var vm = new Vue({
             }
 
             Ajax.request({
-                url: "../sys/config/info/" + id,
+                url: "/sys/config/info/" + id,
                 async: true,
                 successCallback: function (r) {
                     vm.showList = false;
@@ -61,7 +61,7 @@ var vm = new Vue({
 
             confirm('确定要删除选中的记录？', function () {
                 Ajax.request({
-                    url: "../sys/config/delete",
+                    url: "/sys/config/delete",
                     params: JSON.stringify(ids),
                     contentType: "application/json",
                     type: 'POST',
@@ -74,7 +74,7 @@ var vm = new Vue({
             });
         },
         saveOrUpdate: function (event) {
-            var url = vm.config.id == null ? "../sys/config/save" : "../sys/config/update";
+            var url = vm.config.id == null ? "/sys/config/save" : "/sys/config/update";
             Ajax.request({
                 url: url,
                 params: JSON.stringify(vm.config),

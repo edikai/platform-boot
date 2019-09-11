@@ -1,6 +1,6 @@
 $(function () {
     $("#jqGrid").Grid({
-        url: '../sys/oss/list',
+        url: '/sys/oss/list',
         colModel: [
             {label: 'id', name: 'id', key: true, hidden: true},
             {label: 'URL地址', name: 'url', width: 160},
@@ -13,7 +13,7 @@ $(function () {
     });
 
     new AjaxUpload('#upload', {
-        action: '../sys/oss/upload',
+        action: '/sys/oss/upload',
         name: 'file',
         autoSubmit: true,
         responseType: "json",
@@ -97,7 +97,7 @@ var vm = new Vue({
         },
         getConfig: function () {
             Ajax.request({
-                url: "../sys/oss/config",
+                url: "/sys/oss/config",
                 async: true,
                 successCallback: function (r) {
                     vm.config = r.config;
@@ -109,7 +109,7 @@ var vm = new Vue({
             vm.title = "云存储配置";
         },
         saveOrUpdate: function () {
-            var url = "../sys/oss/saveConfig";
+            var url = "/sys/oss/saveConfig";
             Ajax.request({
                 url: url,
                 params: JSON.stringify(vm.config),
@@ -130,7 +130,7 @@ var vm = new Vue({
 
             confirm('确定要删除选中的记录？', function () {
                 Ajax.request({
-                    url: "../sys/oss/delete",
+                    url: "/sys/oss/delete",
                     params: JSON.stringify(ossIds),
                     contentType: "application/json",
                     type: 'POST',

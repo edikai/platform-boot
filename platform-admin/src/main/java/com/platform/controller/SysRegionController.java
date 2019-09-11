@@ -46,7 +46,7 @@ public class SysRegionController {
 
         PageUtils pageUtil = new PageUtils(regionList, total, query.getLimit(), query.getPage());
 
-        return R.ok().put("templates/page", pageUtil);
+        return R.ok().put("page", pageUtil);
     }
 
     /**

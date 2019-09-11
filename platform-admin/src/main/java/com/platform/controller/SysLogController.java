@@ -37,7 +37,7 @@ public class SysLogController {
     public R list(@RequestParam Map<String, Object> params) {
         //查询列表数据
         PageUtilsPlus pageUtil = sysLogService.queryPage(params);
-        return R.ok().put("templates/page", pageUtil);
+        return R.ok().put("page", pageUtil);
     }
 
 }

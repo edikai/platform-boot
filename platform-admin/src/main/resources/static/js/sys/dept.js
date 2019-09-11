@@ -11,7 +11,7 @@ function initialPage() {
 
 function getGrid() {
     var colunms = TreeGrid.initColumn();
-    var table = new TreeTable(TreeGrid.id, '../sys/dept/list', colunms);
+    var table = new TreeTable(TreeGrid.id, '/sys/dept/list', colunms);
     table.setExpandColumn(2);
     table.setIdField("deptId");
     table.setCodeField("deptId");
@@ -77,7 +77,7 @@ var vm = new Vue({
         getDept: function () {
             //加载部门树
             Ajax.request({
-                url: "../sys/dept/select",
+                url: "/sys/dept/select",
                 async: true,
                 successCallback: function (r) {
                     ztree = $.fn.zTree.init($("#deptTree"), setting, r.deptList);
@@ -110,7 +110,7 @@ var vm = new Vue({
                 return;
             }
             Ajax.request({
-                url: "../sys/dept/info/" + deptId,
+                url: "/sys/dept/info/" + deptId,
                 async: true,
                 successCallback: function (r) {
                     vm.showList = false;
@@ -130,7 +130,7 @@ var vm = new Vue({
             confirm('确定要删除选中的记录？', function () {
                 Ajax.request({
                     type: "POST",
-                    url: "../sys/dept/delete",
+                    url: "/sys/dept/delete",
                     params: {"deptId": deptId},
                     successCallback: function () {
                         alert('操作成功', function (index) {
@@ -141,7 +141,7 @@ var vm = new Vue({
             });
         },
         saveOrUpdate: function (event) {
-            var url = vm.dept.deptId == null ? "../sys/dept/save" : "../sys/dept/update";
+            var url = vm.dept.deptId == null ? "/sys/dept/save" : "/sys/dept/update";
             Ajax.request({
                 url: url,
                 contentType: "application/json",

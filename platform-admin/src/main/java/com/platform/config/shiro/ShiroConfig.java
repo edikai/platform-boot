@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -44,10 +45,10 @@ public class ShiroConfig {
 //        return userRealm;
 //    }
     
-    @Bean
-    public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
-        return new LifecycleBeanPostProcessor();
-    }
+//    @Bean
+//    public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
+//        return new LifecycleBeanPostProcessor();
+//    }
 
     /**
      * Shiro默认会使用Servlet容器的Session,可通过sessionMode属性来指定使用Shiro原生Session
@@ -77,10 +78,10 @@ public class ShiroConfig {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         shiroFilterFactoryBean.setUnauthorizedUrl("/");
-//        shiroFilterFactoryBean.setLoginUrl("/login.html");
-        shiroFilterFactoryBean.setLoginUrl("/index.html");
-//        shiroFilterFactoryBean.setSuccessUrl("/success.html");
+        shiroFilterFactoryBean.setLoginUrl("/login.html");
+//        shiroFilterFactoryBean.setLoginUrl("/index.html");
         shiroFilterFactoryBean.setSuccessUrl("/success.html");
+//        shiroFilterFactoryBean.setSuccessUrl("/success.html");
 //        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
 
         Map<String, String> filterMap = new LinkedHashMap<>();

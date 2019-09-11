@@ -2,8 +2,7 @@
 <html>
 <head>
     <title></title>
-    <link rel="import" href="../../header.html" id="header"/>
-    <div th:include="header :: sys-header"  ></div>
+    <link rel="import" href="/header.html" id="header"/>
 </head>
 <body>
 <div id="rrapp" v-cloak>
@@ -53,6 +52,6 @@
     </Card>
 </div>
 
-<script src="${rc.contextPath}/js/sys/smslog.js?_${date.systemTime}"></script>
+<script src="/js/sys/smslog.js?_${date.systemTime}"></script>
 </body>
 </html>

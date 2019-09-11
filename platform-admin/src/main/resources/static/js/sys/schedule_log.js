@@ -1,6 +1,6 @@
 $(function () {
     $("#jqGrid").Grid({
-        url: '../sys/scheduleLog/list',
+        url: '/sys/scheduleLog/list',
         colModel: [
             {label: '日志ID', name: 'logId', key: true, hidden: true},
             {label: '任务ID', name: 'jobId', width: 50},
@@ -54,7 +54,7 @@ var vm = new Vue({
         },
         showError: function (logId) {
             Ajax.request({
-                url: "../sys/scheduleLog/info/" + logId,
+                url: "/sys/scheduleLog/info/" + logId,
                 successCallback: function (r) {
                     openWindow({
                         title: '失败信息',

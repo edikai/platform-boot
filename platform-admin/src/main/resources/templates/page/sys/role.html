@@ -2,8 +2,7 @@
 <html>
 <head>
     <title>角色管理</title>
-    <link rel="import" href="../../header.html" id="header"/>
-    <div th:include="header :: sys-header"  ></div>
+    <link rel="import" href="/header.html" id="header"/>
 </head>
 <body>
 <div id="rrapp" v-cloak>
@@ -33,7 +32,7 @@
             </Form-item>
             <Form-item label="所属部门" prop="deptName">
                 <i-input type="text" v-model="role.deptName" icon="eye" readonly="readonly"
-                         @on-click="deptTree" readonly="readonly" placeholder="所属部门"/>
+                         @on-click="deptTree" placeholder="所属部门"/>
             </Form-item>
             <Form-item label="备注" prop="remark">
                 <i-input type="textarea" v-model="role.remark" placeholder="备注"/>

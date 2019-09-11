@@ -52,7 +52,7 @@ public class SysSmsLogController {
 
         PageUtils pageUtil = new PageUtils(smsLogList, total, query.getLimit(), query.getPage());
 
-        return R.ok().put("templates/page", pageUtil);
+        return R.ok().put("page", pageUtil);
     }
 
     /**

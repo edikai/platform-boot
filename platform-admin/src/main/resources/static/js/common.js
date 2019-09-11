@@ -1,4 +1,8 @@
 
+let url = window.location.href
+let host = window.location.href.substr(0, url.lastIndexOf(':')+1)+window.location.port
+
+
 //iframe自适应
 $(window).on('resize', function () {
     var $content = $('#mainApp');

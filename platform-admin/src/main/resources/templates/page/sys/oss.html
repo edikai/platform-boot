@@ -2,9 +2,8 @@
 <html>
 <head>
     <title>文件上传</title>
-    <link rel="import" href="../../header.html" id="header"/>
-    <div th:include="header :: sys-header"  ></div>
-    <script src="${rc.contextPath}/statics/libs/ajaxupload.js"></script>
+    <link rel="import" href="/header.html" id="header"/>
+    <script th:src="@{/libs/ajaxupload.js}"></script>
 </head>
 <body>
 <div id="rrapp" v-cloak>
@@ -122,6 +121,6 @@
     </Card>
 </div>
 
-<script src="${rc.contextPath}/js/sys/oss.js?_${date.systemTime}"></script>
+<script src="/js/sys/oss.js?_${date.systemTime}"></script>
 </body>
 </html>
