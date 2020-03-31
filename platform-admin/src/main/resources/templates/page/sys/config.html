@@ -1,5 +1,5 @@
+<!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
-<html>
 <head>
     <title>参数管理</title>
     <link rel="import" href="/header.html" id="header"/>
@@ -8,10 +8,12 @@
 <div id="rrapp" v-cloak>
     <div v-show="showList">
         <Row :gutter="16">
-            <i-col span="4">
-                <i-input v-model="q.key" @on-enter="query" placeholder="参数名"/>
-            </i-col>
-            <i-button @click="query">查询</i-button>
+            <div class="search-group">
+                <i-col span="4">
+                    <i-input v-model="q.key" @on-enter="query" placeholder="参数名"/>
+                </i-col>
+                <i-button @click="query">查询</i-button>
+            </div>
             <div class="buttons-group">
                 <i-button type="info" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</i-button>
                 <i-button type="warning" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</i-button>

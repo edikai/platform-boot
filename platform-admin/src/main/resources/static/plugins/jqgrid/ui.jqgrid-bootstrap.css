@@ -272,7 +272,7 @@ div.tablediv > .table-bordered {
 	border-left: 0;
 	border-bottom: 0;
 	border-top: 0; 
-	/*height: 30px;*/
+	height: 40px;
 }
 .ui-jqgrid .ui-pg-table {
 	position: relative; 
@@ -308,10 +308,10 @@ div.tablediv > .table-bordered {
 	height:auto;
 	width: auto;
 	font-size:.9em; 
-	margin:0;
+	margin:0 0 0 -9px;
 	line-height: inherit;
-	border: none; 
-	padding: 0px 3px
+	/*border: none; */
+	padding: 0px 0px;
 }
 .ui-jqgrid .ui-pg-selbox, 
 .ui-jqgrid .ui-jqgrid-toppager .ui-pg-selbox {
@@ -320,8 +320,8 @@ div.tablediv > .table-bordered {
 	display:block; 
 	height:22px; 
 	margin: 0; 
-	padding: 3px 0px 3px 3px; 
-	border:none;
+	padding: 3px 0px 3px 0px;
+	/*border:none;*/
 }
 .ui-jqgrid .ui-separator {
 	height: 18px; 

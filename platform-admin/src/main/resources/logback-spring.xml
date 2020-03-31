@@ -97,6 +97,10 @@
             <appender-ref ref="debug_file"/>
             <!--<appender-ref ref="console"/>-->
         </logger>
-    </springProfile>
 
+        <logger name="com.alibaba.druid" level="debug" additivity="true">
+            <appender-ref ref="console"/>
+            <!--<appender-ref ref="console"/>-->
+        </logger>
+    </springProfile>
 </configuration>
