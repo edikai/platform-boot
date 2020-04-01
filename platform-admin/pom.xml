@@ -65,12 +65,6 @@
             <!--<scope>compile</scope>-->
         </dependency>
 
-        <dependency>
-            <groupId>com.platform</groupId>
-            <artifactId>platform-gen</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
     </dependencies>
 
     <build>

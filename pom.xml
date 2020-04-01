@@ -22,8 +22,9 @@
         <!--<module>platform-framework</module>-->
 
         <!--<module>platform-schedule</module> &lt;!&ndash; 定时任务模块 &ndash;&gt;-->
-        <!--<module>platform-api</module> &lt;!&ndash; API模块 &ndash;&gt;-->
-        <!--<module>platform-shop</module> &lt;!&ndash; 商城后台管理 &ndash;&gt;-->
+        <module>platform-api</module> <!-- API模块 -->
+        <module>platform-shop</module>
+        <module>platform-start</module> <!-- 商城后台管理 -->
         <!--<module>platform-mp</module> &lt;!&ndash; 微信公众号模版 &ndash;&gt;-->
     </modules>
 

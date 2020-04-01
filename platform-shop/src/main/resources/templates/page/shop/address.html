@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<html>
+<head>
+    <title></title>
+    <div th:include="header :: sys-header"/>
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="showList">
+        <Row :gutter="16">
+            <div class="search-group">
+                <i-col span="4">
+                    <i-input v-model="q.userName" @on-enter="query" placeholder="联系人"/>
+                </i-col>
+                <i-col span="4">
+                    <i-input v-model="q.telNumber" @on-enter="query" placeholder="联系电话"/>
+                </i-col>
+                <i-button @click="query">查询</i-button>
+            </div>
+            <div class="buttons-group">
+                <i-button type="error" @click="del" shiro.hasPermission="address:delete"><i class="fa fa-trash-o"></i>&nbsp;删除</i-button>
+            </div>
+        </Row>
+        <table id="jqGrid"></table>
+        <div id="jqGridPager"></div>
+    </div>
+</div>
+
+<script src="/js/shop/address.js?_${date.systemTime}"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<html>
+<head>
+    <title></title>
+    <div th:include="header :: sys-header"/>
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="showList">
+        <Row :gutter="16">
+            <div class="search-group">
+                <i-col span="4">
+                    <i-input v-model="q.name" @on-enter="query" placeholder="名称"/>
+                </i-col>
+                <i-button @click="query">查询</i-button>
+            </div>
+            <div class="buttons-group">
+                <i-button type="warning" @click="back" shiro.hasPermission="goods:back"><i class="fa fa-pencil-square-o"></i>&nbsp;恢复</i-button>
+            </div>
+        </Row>
+        <table id="jqGrid"></table>
+        <div id="jqGridPager"></div>
+    </div>
+
+</div>
+
+<script src="/js/shop/goodsHistory.js?_${date.systemTime}"></script>
+</body>
+</html>
