@@ -20,7 +20,7 @@
         <mybatis-plus.version>3.1.0</mybatis-plus.version>
         <kaptcha.version>2.3.2</kaptcha.version>
         <dom4j.version>1.6.1</dom4j.version>
-        <shiro-version>1.3.2</shiro-version>
+        <shiro-version>1.8.0</shiro-version>
     </properties>
 
     <dependencies>
