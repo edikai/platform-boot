@@ -21,7 +21,7 @@
     "less-loader": "^4.1.0",
     "lockr": "^0.8.4",
     "mockjs": "^1.0.1-beta3",
-    "moment": "^2.22.0",
+    "moment": "^2.29.2",
     "normalize.css": "^8.0.0",
     "postcss-aspect-ratio-mini": "^0.0.2",
     "postcss-cssnext": "^3.1.0",
