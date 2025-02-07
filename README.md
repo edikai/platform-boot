@@ -6,7 +6,7 @@
     带宽：10M
     价格：3999元/三年
 
-购买说明：如果业务量较大，推荐双机部署。
+说明：如果业务量较大，推荐双机部署。
 
 ### MySQL高可用版配置：
     CPU：1核
@@ -14,39 +14,7 @@
     硬盘：100G
     价格：423元/三年
 
-### COS资源包：
-    标准型存储容量：
-    100GB	1年	88元
-    200GB	1年	171元
-    下行流量：
-    100GB	3个月	37元
-    200GB	3个月	71元
-    500GB	3个月	177元
-[抢购地址：https://cloud.tencent.com](https://cloud.tencent.com/redirect.php?redirect=10562&cps_key=30280f92fc381dfc9e1d9e0e23d25a18)
-
 # 微信小程序商城（Java版）
-
-## 获得荣誉
-### GVP
-![](
-https://platform-wxmall.oss-cn-beijing.aliyuncs.com/GVP.jpg "GVP")
-
-## 官方首页
-* [演示地址](http://fly2you.cn)
-* [最新开发文档](http://fly2you.cn/guide/index)
-
-### 微同商城开源版体验：
-![](https://platform-wxmall.oss-cn-beijing.aliyuncs.com/gh_a7a467438863_344.jpg "微同商城开源版")
-
-### 微同商城商业版
-![](https://platform-wxmall.oss-cn-beijing.aliyuncs.com/grocery/20181228/1114545734c867.jpg "微同商城商业版")
-
-* 官方QQ群：<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=2d02d83d8be4c2cb6848bbae1df1037ba2acddecd2a1aa8cef7b3e4ab4ff75aa"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="platform-wechat-mall ①群" title="platform-wechat-mall ①群"></a><a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=990a15d445ef791dba99d22d9772c06ac7894ffa6ac639b1eec530554c432583"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="platform-wechat-mall ②群" title="platform-wechat-mall ②群"></a>
-* git：[https://gitee.com/fuyang_lipengjun/platform](https://gitee.com/fuyang_lipengjun/platform)
-* 基础架构版
-    * git：[https://gitee.com/fuyang_lipengjun/platform-framework](https://gitee.com/fuyang_lipengjun/platform-framework)
-* 代码生成工具IDEA插件
-    * git：[https://gitee.com/fuyang_lipengjun/platform-gen](https://gitee.com/fuyang_lipengjun/platform-gen)
     
 # 注意
 Entity里不是缺少get、set方法，Eclipse、IDEA请先安装lombok插件
